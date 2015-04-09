@@ -66,12 +66,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pootle.cs" />
-    <Compile Include="PootleStorage.cs" />
-    <Compile Include="StorageQuery.cs" />
-    <Compile Include="TableStorage.cs" />
+    <Compile Include="Entities\Game.cs" />
+    <Compile Include="Entities\Pootle.cs" />
+    <Compile Include="Storage\GameStorage.cs" />
+    <Compile Include="Storage\PootleStorage.cs" />
+    <Compile Include="Storage\StorageQuery.cs" />
+    <Compile Include="Storage\TableStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AllPootles.cs" />
+    <Compile Include="Queries\AllPootles.cs" />
+    <Compile Include="TableSet.cs" />
+    <Compile Include="TSContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

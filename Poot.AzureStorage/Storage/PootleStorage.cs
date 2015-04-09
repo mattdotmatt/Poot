@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Poot.AzureStorage.Entities;
+using Poot.AzureStorage.Queries;
 
-namespace Poot.AzureStorage
+namespace Poot.AzureStorage.Storage
 {
     public class PootleStorage : TableStorage<Pootle>
     {

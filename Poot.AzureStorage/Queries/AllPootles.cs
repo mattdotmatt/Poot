@@ -1,4 +1,7 @@
-﻿namespace Poot.AzureStorage
+﻿using Poot.AzureStorage.Entities;
+using Poot.AzureStorage.Storage;
+
+namespace Poot.AzureStorage.Queries
 {
     public class AllPootles : StorageQuery<Pootle>
     {
@@ -7,7 +10,7 @@
             Query =
                 Query.Where(InclusiveRangeFilter(
                     key: "PartitionKey",
-                    from: territory + "-" + facility,
+                    @from: territory + "-" + facility,
                     to: territory + "-" + facility + "."));
         }
     }

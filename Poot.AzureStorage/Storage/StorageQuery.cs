@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace Poot.AzureStorage
+namespace Poot.AzureStorage.Storage
 {
     public class StorageQuery<T> where T : TableEntity, new()
     {

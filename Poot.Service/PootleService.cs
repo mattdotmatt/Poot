@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Poot.AzureStorage;
+﻿using System.Collections.Generic;
+using Poot.DataAccess.Interfaces;
 using Pootle = Poot.Models.Pootle;
 
 namespace Poot.Service
@@ -23,10 +22,5 @@ namespace Poot.Service
             _pootleRepository.GetAll();
             return pootles;
         } 
-    }
-
-    public interface IRepository<T>
-    {
-        IEnumerable<T> GetAll();
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace Poot.AzureStorage
+namespace Poot.AzureStorage.Storage
 {
     public class TableStorage<T> where T : ITableEntity, new()
     {

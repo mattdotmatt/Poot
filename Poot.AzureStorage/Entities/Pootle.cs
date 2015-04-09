@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace Poot.AzureStorage
+namespace Poot.AzureStorage.Entities
 {
     public class Pootle : TableEntity
     {
