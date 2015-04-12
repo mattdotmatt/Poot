@@ -1,5 +1,4 @@
-﻿using Poot.DataAccess.Interfaces;
-using Poot.Models;
+﻿using Poot.Models;
 using Poot.Service.Interfaces;
 
 namespace Poot.Service
@@ -15,7 +14,7 @@ namespace Poot.Service
 
         public void CreateNewGame(Game activeGame)
         {
-            throw new System.NotImplementedException();
+            _gameRepository.Add(activeGame);
         }
     }
 }

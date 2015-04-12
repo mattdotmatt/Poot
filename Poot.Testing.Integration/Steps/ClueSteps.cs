@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http.Results;
 using NUnit.Framework;
-using Poot.DataAccess.Implementations;
+using Poot.Api.Controllers;
+using Poot.DAL.Repositories;
 using Poot.Models;
 using Poot.Service;
 using TechTalk.SpecFlow;
@@ -15,7 +17,7 @@ namespace Poot.Testing.Integration.Steps
         private Game _activeGame;
         private GameRepository _gameRepository;
         private GameService _gameService;
-
+        
         [BeforeScenario]
         public void Setup()
         {
@@ -41,13 +43,21 @@ namespace Poot.Testing.Integration.Steps
         [Given(@"I am playing my active game")]
         public void GivenIAmPlayingMyActiveGame()
         {
-            ScenarioContext.Current.Pending();
+            
         }
 
         [When(@"I request the (first|second) clue")]
         public void WhenIRequestTheFirstClue(string clueNumber)
         {
-            ScenarioContext.Current.Pending();
+            var gameController = new GameController(_gameService);
+            var result = gameController.GetGame(1);
+            var contentResult = result as OkNegotiatedContentResult<Game>;
+
+            // Assert
+            Assert.IsNotNull(contentResult);
+            Assert.IsNotNull(contentResult.Content);
+            Assert.AreEqual(42, contentResult.Content.Clues);
+
         }
 
         [Then(@"I should get Glyph '(.*)'")]

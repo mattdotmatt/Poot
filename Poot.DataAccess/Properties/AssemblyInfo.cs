@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Poot.DataAccess")]
+[assembly: AssemblyTitle("FansTest.DAL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Rackspace")]
-[assembly: AssemblyProduct("Poot.DataAccess")]
+[assembly: AssemblyProduct("FansTest.DAL")]
 [assembly: AssemblyCopyright("Copyright © Rackspace 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2e5ae907-5199-46d7-840a-0aaafbdcab1e")]
+[assembly: Guid("8a41827a-c45e-4c41-aad0-921299a6725e")]
 
 // Version information for an assembly consists of the following four values:
 //

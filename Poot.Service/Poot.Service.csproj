@@ -41,18 +41,10 @@
   <ItemGroup>
     <Compile Include="GameService.cs" />
     <Compile Include="Interfaces\IGameService.cs" />
-    <Compile Include="PootleService.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Poot.AzureStorage\Poot.AzureStorage.csproj">
-      <Project>{E6901A4B-327E-4E67-B125-04222204624E}</Project>
-      <Name>Poot.AzureStorage</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Poot.DataAccess\Poot.DataAccess.csproj">
-      <Project>{52ACA23E-9A00-4B6D-9CC2-21FD6E477798}</Project>
-      <Name>Poot.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Poot.Models\Poot.Models.csproj">
       <Project>{a0e29cc7-bffb-4e38-922f-005445ece4f3}</Project>
       <Name>Poot.Models</Name>

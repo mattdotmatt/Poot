@@ -1,22 +1,19 @@
-using Poot.DataAccess.Implementations;
-using Poot.DataAccess.Interfaces;
+using System;
+using System.Web;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using Ninject;
+using Ninject.Web.Common;
+using Poot.Api;
+using Poot.DAL.Repositories;
 using Poot.Models;
 using Poot.Service;
 using Poot.Service.Interfaces;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Poot.Api.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Poot.Api.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
-namespace Poot.Api.App_Start
+namespace Poot.Api
 {
-    using System;
-    using System.Web;
-
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();

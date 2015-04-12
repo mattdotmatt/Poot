@@ -20,3 +20,9 @@ Scenario: Get the second clue for a game
 	Given I am playing my active game
 	When I request the second clue
 	Then I should get Glyph 'b'
+#
+#	Queue one up?
+#	Auth
+#	Logging
+#	Partition
+#	Scale
