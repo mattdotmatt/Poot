@@ -14,8 +14,14 @@ namespace Poot.DAL.Mappings
                 .ForMember(src => src.ETag, opt => opt.Ignore())
                 .ForMember(src => src.PartitionKey, opt => opt.Ignore())
                 .ForMember(src => src.Timestamp, opt => opt.Ignore())
-                .ForMember(src => src.RowKey, opt => opt.Ignore());
-            Mapper.CreateMap<Game, Models.Game>();
+                .ForMember(src => src.RowKey, opt => opt.Ignore())
+                .ForMember(src => src.Clues, c => c.MapFrom(g => g.Clues));
+            Mapper.CreateMap<Models.Clue, Clue>();
+
+            Mapper.CreateMap<Clue, Models.Clue>();
+            Mapper.CreateMap<Game, Models.Game>()
+                .ForMember(src => src.Clues, c => c.MapFrom(g => g.Clues));
+
         }
     }
 }

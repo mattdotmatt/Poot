@@ -2,13 +2,15 @@
 
 namespace Poot.Models
 {
-    public class Game
+    public class Game : IModel
     {
-        public List<Clue> Clues { get; set; }
-        public string Name { get; set; }
+        public IList<Clue> Clues { get; private set; }
+        public string Name { get; private set; }
+        public string ETag { get; private set; }
 
-        public Game(List<Clue> clues)
+        public Game(string name, IList<Clue> clues)
         {
+            Name = name;
             Clues = clues;
         }
 

@@ -68,7 +68,7 @@ namespace Poot.Testing.Integration.Specifications
         {
 #line 6
 #line 7
- testRunner.Given("I have one active game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have one active game called \'first\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Clue",

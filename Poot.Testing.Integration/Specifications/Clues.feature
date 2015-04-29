@@ -4,7 +4,7 @@
 	I want to see the clues
 
 Background:
-	Given I have one active game
+	Given I have one active game called 'first'
 	And it has the following glyph clues:
 	| Clue | Glyph |
 	| 1    | a     |

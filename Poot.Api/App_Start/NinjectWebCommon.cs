@@ -64,7 +64,7 @@ namespace Poot.Api
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IRepository<Game>>().To<GameRepository>();
+            kernel.Bind<IRepositoryFactory>().To<RepositoryFactory>();
             kernel.Bind<IGameService>().To<GameService>();
         }        
     }

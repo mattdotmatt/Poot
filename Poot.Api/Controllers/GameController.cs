@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Description;
+using Poot.Models;
 using Poot.Service;
 
 namespace Poot.Api.Controllers
@@ -14,11 +15,12 @@ namespace Poot.Api.Controllers
         }
 
         [HttpGet]
-        [Route("game/{gameId:int}")]
-        [ResponseType(typeof (GetGameResponse))]
-        public IHttpActionResult GetGame(int gameId)
+        [Route("game/{gameId:string}")]
+        [ResponseType(typeof (Game))]
+        public IHttpActionResult GetGame(string gameId)
         {
-            return Ok(new GetGameResponse());
+            var game = _gameService.GameWithId(gameId);
+            return Ok(game);
         }
     }
 }

@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Clue.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="IModel.cs" />
     <Compile Include="Pootle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

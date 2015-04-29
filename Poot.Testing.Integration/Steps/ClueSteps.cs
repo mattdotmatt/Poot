@@ -15,19 +15,24 @@ namespace Poot.Testing.Integration.Steps
     public class ClueSteps
     {
         private Game _activeGame;
-        private GameRepository _gameRepository;
+        private RepositoryFactory _repositoryFactory;
         private GameService _gameService;
-        
+        private ClueService _clueService;
+        private string _name;
+
         [BeforeScenario]
         public void Setup()
         {
-            _gameRepository = new GameRepository();
-            _gameService = new GameService(_gameRepository);
+            _repositoryFactory = new RepositoryFactory();
+            _gameService = new GameService(_repositoryFactory);
+            _clueService = new ClueService(_repositoryFactory);
+            _gameService.DeleteAll();
         }
 
-        [Given(@"I have one active game")]
-        public void GivenIHaveOneActiveGame()
+        [Given(@"I have one active game called '(.*)'")]
+        public void GivenIHaveOneActiveGame(string name)
         {
+            _name = name;
         }
 
         [Given(@"it has the following glyph clues:")]
@@ -36,7 +41,7 @@ namespace Poot.Testing.Integration.Steps
             var clues = new List<Clue>();
             table.Rows.ToList().ForEach(row => clues.Add(new Clue(Int32.Parse(row["Clue"]), row["Glyph"])));
 
-            _activeGame = new Game(clues);
+            _activeGame = new Game(_name, clues);
             _gameService.CreateNewGame(_activeGame);
         }
 
@@ -46,24 +51,32 @@ namespace Poot.Testing.Integration.Steps
             
         }
 
-        [When(@"I request the (first|second) clue")]
-        public void WhenIRequestTheFirstClue(string clueNumber)
+        [When(@"I request the first clue")]
+        public void WhenIRequestTheFirstClue()
         {
-            var gameController = new GameController(_gameService);
-            var result = gameController.GetGame(1);
-            var contentResult = result as OkNegotiatedContentResult<Game>;
+            var clueController = new ClueController(_clueService);
+            var result = clueController.GetFirstClue("first");
+            var contentResult = result as OkNegotiatedContentResult<Clue>;
+            ScenarioContext.Current.Add("ClueResult", contentResult);
+        }
 
-            // Assert
-            Assert.IsNotNull(contentResult);
-            Assert.IsNotNull(contentResult.Content);
-            Assert.AreEqual(42, contentResult.Content.Clues);
-
+        [When(@"I request the second clue")]
+        public void WhenIRequestTheSecondClue()
+        {
+            var clueController = new ClueController(_clueService);
+            var result = clueController.GetSecondClue("first");
+            var contentResult = result as OkNegotiatedContentResult<Clue>;
+            ScenarioContext.Current.Add("ClueResult", contentResult);
         }
 
         [Then(@"I should get Glyph '(.*)'")]
         public void ThenIShouldGetGlyph(string glyph)
         {
-            ScenarioContext.Current.Pending();
+            var contentResult = (OkNegotiatedContentResult<Clue>)ScenarioContext.Current["ClueResult"];
+            // Assert
+            Assert.IsNotNull(contentResult);
+            Assert.IsNotNull(contentResult.Content);
+            Assert.That(contentResult.Content.Glyph, Is.EqualTo(glyph));
         }
     }
 }

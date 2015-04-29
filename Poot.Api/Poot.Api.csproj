@@ -100,7 +100,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ClueController.cs" />
     <Compile Include="Controllers\GameController.cs" />
-    <Compile Include="Controllers\GetGameResponse.cs" />
     <Compile Include="Controllers\PootController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
